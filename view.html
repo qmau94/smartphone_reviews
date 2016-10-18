@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Review</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+    
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+   
+
+    <script type="text/javascript" src="{{Asset('assets/js/jquery-validate/jquery-validate.js')}}"></script>
+
+    <style>
+        body {
+            font-family: 'Lato';
+        }
+
+        .fa-btn {
+            margin-right: 6px;
+        }
+		
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;}
+.mySlides {display:none}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+	
+    </style>
+</head>
+<body id="app-layout">
+ <nav class="navbar navbar-default" >
+     <div class="container">		
+		<ul class="nav navbar-nav">
+			<form class="navbar-form navbar" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search">
+				</div>
+				<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+			</form>
+		</ul>		
+	   <ul class="nav navbar-nav navbar-right">
+		  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+		  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		</ul>
+  </div>
+</nav>
+
+		<div class="slideshow-container">
+				<div class="mySlides fade">
+				  <div class="numbertext">1 / 3</div>
+				  <img src="D:\xampp\htdocs\1.jpg" style="width:100%">
+				  <div class="text">Caption Text</div>
+				</div>
+
+				<div class="mySlides fade">
+				  <div class="numbertext">2 / 3</div>
+				  <img src="D:\xampp\htdocs\2.jpg" style="width:100%">
+				  <div class="text">Caption Two</div>
+				</div>
+
+				<div class="mySlides fade">
+				  <div class="numbertext">3 / 3</div>
+				  <img src="D:\xampp\htdocs\1.jpg" style="width:100%">
+				  <div class="text">Caption Three</div>
+				</div>
+
+				</div>
+				<br>
+
+				<div style="text-align:center">
+				  <span class="dot"></span>
+				  <span class="dot"></span>
+				  <span class="dot"></span>
+		</div>
+
+</br>
+		 <div class="container">
+		 <nav class="navbar navbar-inverse">
+			<ul class="nav navbar-nav">
+			  <li><a href="#">ホームページ</a></li>
+			  <li><a href="#">レビュー</a></li>
+			  <li><a href="#">カテゴリ</a></li>
+			  <li><a href="#">二ュース</a></li>
+			  <li><a href="#">二ュース</a></li>
+			</ul>
+			</nav>
+		</div>
+  
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3" style="background-color:lavender;">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">メーカー</a>
+					<a href="#" class="list-group-item">APPLE</a>
+					<a href="#" class="list-group-item">SAM SUNG</a>
+					<a href="#" class="list-group-item">LG</a>
+					<a href="#" class="list-group-item">OPPO</a>
+					<a href="#" class="list-group-item">VIET NAM</a>
+				</div>
+				
+				<div class="list-group">
+					<a href="#" class="list-group-item active">トップレビュー</a>
+					<a href="#" class="list-group-item">レビュー１</a>
+					<a href="#" class="list-group-item">レビュー２</a>
+					<a href="#" class="list-group-item">レビュー３</a>
+					<a href="#" class="list-group-item">レビュー４</a>
+				</div>
+				
+				<div class="list-group">
+					<a href="#" class="list-group-item active">人気な製品</a>
+					<a href="#" class="list-group-item">製品１</a>
+					<a href="#" class="list-group-item">製品２</a>
+					<a href="#" class="list-group-item">製品３</a>
+					<a href="#" class="list-group-item">製品４</a>
+				</div>
+				</div>			
+												
+			<div class="col-sm-9" style="background-color:lavenderblush;">
+				
+			<div class="one">
+					<table class="table table-bordered">
+					<div class="list-group">
+					<p> <strong> 最新のレビュー</strong> </p>
+					<thead>
+					  <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					</thead>
+					<tbody>
+					   <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					   <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					   <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					</tbody>
+					</div>	
+				  </table>
+			</div>
+			
+			<div class="two">
+					<table class="table table-bordered">
+					<p><strong> 最新の製品</strong> </p>
+					<thead>
+					  <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					</thead>
+					<tbody>
+					   <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					   <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					   <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					</tbody>
+				  </table>
+				  
+				  <div class="two">
+					<table class="table table-bordered">
+					<p><strong> 人気な製品</strong> </p>
+					<thead>
+					  <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					</thead>
+					<tbody>
+					   <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					   <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					   <tr>
+						<th><img src="D:\xampp\htdocs\1.jpg" style="width:10%;height:10%">
+						</th>
+						<th>タイトル</th>
+					  </tr>
+					</tbody>
+				  </table>
+				  
+			</div>	
+			</div>
+		 </div>
+</div>
+</br>
+
+		 
+		 
+
+<footer class="navbar navbar-inverse"> 
+ 
+</footer>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex> slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 3000); // Change image every 2 seconds
+}
+</script>
+
+    <!-- JavaScripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+</body>
+</html>
