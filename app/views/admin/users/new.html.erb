@@ -1,0 +1,35 @@
+<% provide :title, "New user" %>
+<%= render "shared/error_message", object: @user %>
+<%= form_for [:admin, @user] do |f| %>
+  <div class="field">
+    <%= f.label "Eメール" %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label "名前" %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label "代表イメージ" %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= f.label "パスワード" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> 文字の最小)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "パスワード確認" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "サインアップ" %>
+  </div>
+<% end %>
