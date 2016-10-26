@@ -1,0 +1,5 @@
+<% provide :title, "Phones index" %>
+<% @mobiles.each do |mobile| %>
+  <%= image_tag mobile.image.url(:medium) %>
+  <%= mobile.name %><br>
+<% end %>

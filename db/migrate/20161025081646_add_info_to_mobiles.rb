@@ -1,0 +1,41 @@
+class AddInfoToMobiles < ActiveRecord::Migration[5.0]
+  def change
+    add_column :mobiles, :network_technology, :string
+    add_column :mobiles, :launch_announced, :string
+    add_column :mobiles, :launch_status, :string
+    add_column :mobiles, :body_dimensions, :string
+    add_column :mobiles, :body_weight, :int
+    add_column :mobiles, :body_sim, :string
+    add_column :mobiles, :display_type, :string
+    add_column :mobiles, :display_size, :string
+    add_column :mobiles, :display_resolution, :string
+    add_column :mobiles, :display_multitouch, :string
+    add_column :mobiles, :platform_os, :string
+    add_column :mobiles, :platform_chipset, :string
+    add_column :mobiles, :platform_CPU, :string
+    add_column :mobiles, :platform_GPU, :string
+    add_column :mobiles, :memory_cardslot, :string
+    add_column :mobiles, :memory_internal, :string
+    add_column :mobiles, :camera_primary, :string
+    add_column :mobiles, :camera_features, :string
+    add_column :mobiles, :camera_video, :string
+    add_column :mobiles, :camera_secondary, :string
+    add_column :mobiles, :sound_alerttypes, :string
+    add_column :mobiles, :sound_loudspeakers, :string
+    add_column :mobiles, :sound_35mmjack, :string
+    add_column :mobiles, :comms_wlan, :string
+    add_column :mobiles, :comms_bluetooth, :string
+    add_column :mobiles, :comms_gps, :string
+    add_column :mobiles, :comms_nfc, :string
+    add_column :mobiles, :comms_radio, :string
+    add_column :mobiles, :comms_usb, :string
+    add_column :mobiles, :features_sensors, :string
+    add_column :mobiles, :features_messaging, :string
+    add_column :mobiles, :features_browser, :string
+    add_column :mobiles, :features_java, :string
+    add_column :mobiles, :features_misc, :string
+    add_column :mobiles, :battery, :string
+    add_column :mobiles, :misc_colors, :string
+    add_column :mobiles, :price_groups, :string
+  end
+end

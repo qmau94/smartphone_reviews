@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to root_path do %>
+        <a class="navbar-brand" href="#">スマートフォンビュー</a>
+      <% end %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav center-block">
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="検索">
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "こんにちは、#{current_user.email}", "#" %></li>
+          <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path,
+            method: :delete %></li>
+        <% else %>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "サインアップ", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="second-row">
+      <ul>
+        <li><%=link_to "ホームページ", root_path %></li>
+        <li><a href="#">レビュー</a></li>
+        <li><a href="#">カテゴリ</a></li>
+        <li><a href="#">ニュス</a></li>
+        <li><a href="#">連絡</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
