@@ -12,4 +12,7 @@ class Mobile < ApplicationRecord
     :comms_bluetooth, :comms_gps, :comms_nfc, :comms_radio, :comms_usb,
     :features_sensors, :features_messaging, :features_browser, :features_java,
     :features_misc, :battery, :misc_colors, :image]
+
+  has_many :mobie_brands
+  has_many :mobile_reviews
 end
