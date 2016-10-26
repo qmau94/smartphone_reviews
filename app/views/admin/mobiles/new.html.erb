@@ -1,0 +1,26 @@
+<% provide :title, "New phone" %>
+<%= render "shared/error_message", object: @mobile %>
+<%= form_for [:admin, @mobile], html: {multipart: true} do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label "Description" %>
+  <%= f.text_area :description %><br>
+<!-- Network<br>
+Launch<br>
+Body<br>
+Display<br>
+Platform<br>
+Memory<br>
+Camera<br>
+Sound<br>
+Comms<br>
+Features<br>
+Battery<br>
+Misc<br>
+Price<br> -->
+Image<br>
+<%= f.file_field :image %>
+
+  <%= f.submit "Create phone", class: "btn btn-default" %>
+<% end %>
