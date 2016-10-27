@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_user
 
   def after_sign_in_path_for user
-    current_user.admin? ? admin_root_url : root_url
+    current_user.admin? ? admin_dashboard_url : root_url
   end
 
   protected

@@ -5,6 +5,8 @@ class CreateMobiles < ActiveRecord::Migration[5.0]
       t.string :description
       t.date :created_at
       t.date :updated_at
+      t.references :mobile_brand, index: true
+
 
       t.timestamps
     end

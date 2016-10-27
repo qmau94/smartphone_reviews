@@ -1,5 +1,39 @@
 <% provide :title, "Phones index" %>
-<% @mobiles.each do |mobile| %>
-  <%= image_tag mobile.image.url(:medium) %>
-  <%= mobile.name %><br>
+<h1>All Phones</h1>
+<%= link_to new_admin_mobile_path do %>
+  <dir class="btn btn-success">Add mobile</dir>
 <% end %>
+<table class="table table-bordered text-center">
+  <thead>
+    <td><strong>Id</strong></td>
+    <td><strong>Image</strong></td>
+    <td><strong>Name</strong></td>
+    <td><strong>Brand</strong></td>
+    <td><strong>Actions</strong></td>
+  </thead>
+  <% @mobiles.each do |mobile| %>
+    <tr>
+      <td>
+        <%= mobile.id %>
+      </td>
+      <td>
+        <%= image_tag mobile.image.url(:medium) %>
+      </td>
+      <td>
+        <%= link_to mobile.name, admin_mobile_path(mobile) %><br>
+      </td>
+      <td>
+        <%= image_tag mobile.mobile_brand.image.url(:thumb) %><br>
+        <%= mobile.mobile_brand.name %>
+      </td>
+      <td>
+        <%= link_to edit_admin_mobile_path(mobile) do %>
+          <div class="btn btn-primary"> Edit </div>
+        <% end %>
+        <%= link_to admin_mobile_path(mobile), method: :delete, data: {confirm: "Are you sure?"} do %>
+          <div class="btn btn-danger"> Delete </div>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

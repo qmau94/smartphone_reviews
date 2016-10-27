@@ -1,6 +1,45 @@
 <% provide :title, "All users" %>
-<% @users.each do |user| %>
-  <%= user.name %>
-  <%= user.email %>
-  <%= image_tag user.avatar.url(:thumb) %>
-<% end%>
+<h1>All Users</h1>
+<%= link_to new_admin_user_path do %>
+  <div class="btn btn-success">Add user</div>
+<% end %>
+<table class="table table-bordered text-center">
+  <thead>
+    <td><strong>Id</strong></td>
+    <td><strong>Avatar</strong></td>
+    <td><strong>Name</strong></td>
+    <td><strong>Email</strong></td>
+    <td><strong>Action</strong></td>
+  </thead>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= user.id %>
+      </td>
+      <td>
+        <%= image_tag user.avatar.url(:thumb) %>
+      </td>
+      <td>
+        <%= link_to user.name, admin_user_path(user) %>
+        <% if user.admin? %>
+        <span class="label label-danger">Admin</span>
+        <% else %>
+        <span class="label label-success">User</span>
+        <% end %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+      <%= link_to edit_admin_user_path(user) do %>
+        <div class="btn btn-primary"> Edit </div>
+      <% end %>
+      <%= link_to admin_user_path(user), method: :delete, data: {confirm: "Are you sure?"} do %>
+        <div class="btn btn-danger"> Delete </div>
+      <% end %>
+      </td>
+    </tr>
+  <% end%>
+</table>
+
+

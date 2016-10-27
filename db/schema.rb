@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026082411) do
+ActiveRecord::Schema.define(version: 20161031061350) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -36,8 +36,12 @@ ActiveRecord::Schema.define(version: 20161026082411) do
     t.string   "description"
     t.integer  "mobile_id"
     t.integer  "company_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["company_id"], name: "index_mobile_brands_on_company_id"
     t.index ["mobile_id"], name: "index_mobile_brands_on_mobile_id"
   end
@@ -57,6 +61,7 @@ ActiveRecord::Schema.define(version: 20161026082411) do
     t.string   "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "mobile_brand_id"
     t.string   "network_technology"
     t.string   "launch_announced"
     t.string   "launch_status"
@@ -98,6 +103,14 @@ ActiveRecord::Schema.define(version: 20161026082411) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "thickness"
+    t.string   "os"
+    t.string   "storage"
+    t.string   "display"
+    t.string   "camera"
+    t.string   "ram"
+    t.string   "battery_spec"
+    t.index ["mobile_brand_id"], name: "index_mobiles_on_mobile_brand_id"
   end
 
   create_table "rates", force: :cascade do |t|
@@ -114,12 +127,12 @@ ActiveRecord::Schema.define(version: 20161026082411) do
     t.string   "content"
     t.string   "mobile"
     t.datetime "date"
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.integer  "mobile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mobile_id"], name: "index_reviews_on_mobile_id"
-    t.index ["users_id"], name: "index_reviews_on_users_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -136,7 +149,6 @@ ActiveRecord::Schema.define(version: 20161026082411) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.string   "avatar"
     t.integer  "role"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"

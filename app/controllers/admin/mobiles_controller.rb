@@ -17,8 +17,27 @@ class Admin::MobilesController < AdminController
     end
   end
 
+  def edit
+    @mobile = Mobile.find params[:id]
+  end
+
+  def update
+    @mobile = Mobile.find params[:id]
+    if @mobile.update_attributes mobile_params
+      flash[:success] = "#{@mobile.name} has been updated successfully"
+      redirect_to [:admin, @mobile]
+    else
+      render :edit
+    end
+  end
+
+  def show
+    @mobile = Mobile.find params[:id]
+  end
+
   private
   def mobile_params
     params.require(:mobile).permit Mobile::ATTRIBUTES_PARAMS
   end
+
 end
