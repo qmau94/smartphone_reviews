@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-  belongs_to :users
-  belongs_to :mobile
+  belongs_to :users, optional: true
+  belongs_to :mobile, optional: true
 end

@@ -1,0 +1,4 @@
+<% provide :title, @mobile.name %>
+<h1> <%= @mobile.name %> </h1>>
+<%= image_tag @mobile.image.url(:medium) %>
+<%= link_to "Edit", edit_admin_mobile_path(@mobile) %>

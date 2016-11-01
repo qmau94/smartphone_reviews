@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.string :content
       t.string :mobile
       t.datetime :date
-      t.references :users, foreign_key: true
+      t.references :user, foreign_key: true
       t.references :mobile, foreign_key: true
 
       t.timestamps

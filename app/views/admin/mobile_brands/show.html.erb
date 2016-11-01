@@ -1,0 +1,4 @@
+<% provide :title, "#{@mobile_brand.name}" %>
+<%= image_tag @mobile_brand.image.url(:thumb) %>
+<%= @mobile_brand.name %>
+<%= link_to "Edit", edit_admin_mobile_brand_path(@mobile_brand) %>

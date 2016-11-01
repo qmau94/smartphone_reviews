@@ -15,7 +15,13 @@
   <div class="container">
     <%= render "layouts/header" %>
     <%= render "layouts/flash" %>
-    <%= yield %>
+    <% unless params[:controller] == "static_pages" ||
+      params[:controller] == "devise/sessions"%>
+      <%= render "static_pages/side_bar" %>
+    <% end %>
+    <div>
+      <%= yield %>
+    </div>
     <%= render "layouts/footer" %>
   </div>
   </body>

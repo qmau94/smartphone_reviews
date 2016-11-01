@@ -1,0 +1,28 @@
+<table class="table table-bordered">
+  <tr class="phone-name">
+    HTC
+  </tr>
+  <tr>
+    <thead class="phone-image"><%= link_to mobile_path(@mobile) do %>
+      <%= image_tag @mobile.image.url %>
+      <% end %>
+    </thead>
+    <thead>
+      <table class="table table-bordered">
+        <tr>
+          <td colspan="2" class="big-info">
+
+          </td>
+          <td class="small-info">RATE</td>
+          <td class="small-info">RANK</td>
+        </tr>
+        <tr>
+          <td class="small-info">DISPLAY</td>
+          <td class="small-info">CAMERA</td>
+          <td class="small-info">RAM</td>
+          <td class="small-info">BATTERY</td>
+        </tr>
+      </table>
+    </thead>
+  </tr>
+</table>
