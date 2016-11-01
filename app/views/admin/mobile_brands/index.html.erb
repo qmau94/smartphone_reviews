@@ -24,6 +24,9 @@
         <%= link_to admin_mobile_brand_path(brand), method: :delete, data: {confirm: "Are you sure?"} do %>
           <div class="btn btn-danger"> Delete </div>
         <% end %>
+        <%= link_to new_admin_mobile_path(brand: brand) do %>
+          <div class="btn btn-success">Add phone</div>
+        <% end %>
       </td>
     </tr>
   <% end %>

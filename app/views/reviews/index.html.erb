@@ -1,0 +1,11 @@
+<% provide :title, "All reviews" %>
+<div class="col-md-9">
+<% @reviews.each do |review| %>
+  <div class="col-md-4">
+    <%= image_tag review.image.url(:thumb), class: "image" %>
+    <span class="label label-danger"><%= review.user.name %></span><br>
+    <%= link_to review.mobile.name, review_path(review) %><br>
+    <%= review.created_at.strftime("%b %d, %Y")%>
+  </div>
+<% end %>
+</div>

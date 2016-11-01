@@ -1,28 +1,40 @@
-<table class="table table-bordered">
-  <tr class="phone-name">
-    HTC
-  </tr>
-  <tr>
-    <thead class="phone-image"><%= link_to mobile_path(@mobile) do %>
-      <%= image_tag @mobile.image.url %>
-      <% end %>
-    </thead>
-    <thead>
-      <table class="table table-bordered">
-        <tr>
-          <td colspan="2" class="big-info">
+  <div class="phone-name">
+    <%= @mobile.name %>
+  </div>
+  <div class="phone-info">
+    <div class="col-md-4">
+      <%= image_tag @mobile.image.url, class: "col-md-offset-2" %>
+    </div>
+    <div class="col-md-4" style="height: 108px">
+      <i class="fa fa-calendar" aria-hidden="true"></i> Released <%= @mobile.launch_announced %> <br>
+      <i class="fa fa-mobile-phone" aria-hidden="true"></i> <%= @mobile.thickness%> <br>
+      <i class="fa fa-check" aria-hidden="true"></i> <%= @mobile.os %> <br>
+      <i class="fa fa-tags" aria-hidden="true"></i> @mobile.storage <br>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      HITS
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      BECOME A FAN
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <i class="fa fa-arrows-alt fa-2x" aria-hidden="true"></i><br>
+      <%= @mobile.display %>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <i class="fa fa-camera fa-2x" aria-hidden="true"></i><br>
+      <%= @mobile.camera %>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <i class="fa fa-cog fa-2x" aria-hidden="true"></i><br>
+      <%= @mobile.ram %>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <i class="fa fa-battery-full fa-2x" aria-hidden="true"></i><br>
+      <%= @mobile.battery_spec %>
+    </div>
+    <div class="col-md-12">
+      <%= link_to "Review", review_path(@mobile.review) %>
+    </div>
+  </div>
 
-          </td>
-          <td class="small-info">RATE</td>
-          <td class="small-info">RANK</td>
-        </tr>
-        <tr>
-          <td class="small-info">DISPLAY</td>
-          <td class="small-info">CAMERA</td>
-          <td class="small-info">RAM</td>
-          <td class="small-info">BATTERY</td>
-        </tr>
-      </table>
-    </thead>
-  </tr>
-</table>

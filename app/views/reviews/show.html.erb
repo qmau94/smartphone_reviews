@@ -1,0 +1,15 @@
+<% provide :title, "#{@review.mobile.name} review" %>
+<div class="col-md-9">
+  <div class="col-md-12 review-image" style="background-image: url(<%= @review.image.url %>)">
+  <div class="col-md-3">
+    <h2><span class="label label-danger"><%= @review.user.name %></span></h2>
+    <h5><span class="label label-default"><%= @review.created_at %></span></h5>
+  </div>
+  <div class="col-md-3 col-md-offset-9" style="padding-top: 130px">
+    <%= link_to @review.mobile.name.upcase, mobile_path(@review.mobile), class: "btn btn-default" %>
+  </div>
+  </div>
+</div>
+<div class="col-md-9 review" style="padding-top: 20px">
+  <%= @review.content.html_safe %>
+</div>

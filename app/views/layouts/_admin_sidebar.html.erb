@@ -51,6 +51,20 @@
       </ul>
     </li>
     <li class="panel-group">
+      <a data-toggle="collapse" href="#reviews">
+        <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+        Reviews
+      </a>
+      <ul id="reviews" class="panel-collapse collapse">
+        <li>
+          <%= link_to "New review", new_admin_review_path %>
+        </li>
+        <li>
+          <%= link_to "Reviews index", admin_reviews_path %>
+        </li>
+      </ul>
+    </li>
+    <li class="panel-group">
       <a data-toggle="collapse" href="#account">
         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
         Account

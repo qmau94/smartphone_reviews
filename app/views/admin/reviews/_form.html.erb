@@ -1,0 +1,9 @@
+<%= form_for [:admin,@review] do |f| %>
+  <%= f.select :mobile_id, Mobile.all.collect {|m| [m.name, m.id]}, class: "form-control"%><br>
+  <%= f.label "Image" %><br>
+  <%= image_tag @review.image.url(:thumb) if @review.image.present? %>
+  <%= f.file_field :image, class: "form-control" %><br>
+  <%= f.label "Content" %><br>
+  <%= f.cktext_area :content %>
+  <%= f.submit "#{params[:action]} review".upcase, class: "btn btn-primary" %>
+<% end %>
