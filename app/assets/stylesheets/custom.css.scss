@@ -244,3 +244,15 @@ div#carousel ~ span:hover { color: #888; cursor: pointer; }
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+
+.image {
+  max-width:100%;
+  max-height:100%;
+}
+
+.review-image {
+  height: 250px;
+  width: 750px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

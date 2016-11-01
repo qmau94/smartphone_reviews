@@ -1,6 +1,6 @@
 <div class="col-md-6">
-  <%= render "shared/error_message", object: @mobile %>
   <%= form_for [:admin, @mobile], html: {multipart: true} do |f| %>
+    <%= render "shared/error_message", object: @mobile %>
     <%= f.label "Name" %>
     <%= f.text_field :name, class: "form-control" %><br>
 
@@ -8,7 +8,7 @@
     <%= f.text_area :description, class: "form-control" %><br>
 
     <%= f.label "Brand" %>
-    <%= f.select :mobile_brand_id , MobileBrand.all.collect{|b| [b.name, b.id]}, include_blank: true %>
+    <%= f.select :mobile_brand_id , MobileBrand.all.collect{|b| [b.name, b.id]}, include_blank: true %><br>
 
   <!-- Network<br>
   Launch<br>
@@ -23,8 +23,8 @@
   Battery<br>
   Misc<br>
   Price<br> -->
-    Image<br>
-    <%= image_tag @mobile.image.url(:thumb) if @mobile.image %>
+    <%= f.label "Image" %><br>
+    <%= image_tag @mobile.image.url(:thumb) if @mobile.image.present? %>
     <%= f.file_field :image, class: "form-control" %>
     <%= f.submit "#{params[:action]} phone".upcase, class: "btn btn-primary form-control" %>
   <% end %>
