@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root "static_pages#home"
   resources :mobiles, only: :show
-  resources :reviews, only: [:show, :index]
+  resources :reviews, only: [:show, :index] do
+    resources :comments, only: [:create, :destroy]
+  end
   namespace :admin do
     resources :mobiles
     get "dashboard", to: "pages#home"

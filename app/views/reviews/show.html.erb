@@ -13,3 +13,12 @@
 <div class="col-md-9 review" style="padding-top: 20px">
   <%= @review.content.html_safe %>
 </div>
+<h1>Comment(<%= @review.comments.count %>)</h1>
+<div class="col-md-9" style="background-color: #b6b6c0">
+  <div class="comments-container">
+    <ul id="comments-list" class="comments-list">
+      <%= render @review.comments %>
+    </ul>
+  </div>
+  <%= render "comments/form" %>
+</div>
