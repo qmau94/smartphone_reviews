@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 20161101065706) do
   create_table "comments", force: :cascade do |t|
     t.string   "content"
     t.integer  "type"
-    t.integer  "users_id"
+    t.integer  "user_id"
     t.integer  "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["review_id"], name: "index_comments_on_review_id"
-    t.index ["users_id"], name: "index_comments_on_users_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
