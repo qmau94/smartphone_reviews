@@ -11,8 +11,10 @@
         <span style="padding-top: 6px">posted <%= time_ago_in_words(comment.created_at) %> </span>
         <i class="fa fa-reply"></i>
         <i class="fa fa-heart"></i>
-        <%= link_to [@review, comment], method: :delete, data: {confirm: "Are you sure?"} do %>
-          <i class="fa fa-minus-square"></i>
+        <% if comment.user == current_user %>
+          <%= link_to [@review, comment], method: :delete, data: {confirm: "Are you sure?"} do %>
+            <i class="fa fa-minus-square"></i>
+          <% end %>
         <% end %>
       </div>
       <div class="comment-content">

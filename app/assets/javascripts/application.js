@@ -13,6 +13,8 @@
 //= require jquery
 //= require ckeditor/init
 //= require jquery_ujs
+//= require jquery.raty
+//= require ratyrate
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
