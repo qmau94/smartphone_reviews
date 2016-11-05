@@ -256,3 +256,14 @@ div#carousel ~ span:hover { color: #888; cursor: pointer; }
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+
+.mobile_div {
+  height: 210px;
+  width: 150px;
+}
+
+.mobile_div:hover {
+  .name{
+    background-color: red;
+  }
+}

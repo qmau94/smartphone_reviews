@@ -3,6 +3,10 @@ class Mobile < ApplicationRecord
   has_one :review
   validates :image, presence: true
 
+  ratyrate_rateable "original_score"
+
+  scope :with_ratings, ->{includes(:rate_average_without_dimension).order("rating_caches.avg desc")}
+
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
