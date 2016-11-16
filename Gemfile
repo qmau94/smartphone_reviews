@@ -1,8 +1,9 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 5.0.0", ">= 5.0.0.1"
+gem "ratyrate"
+gem "ckeditor"
 gem "font-awesome-rails"
-gem "sqlite3"
 gem "devise"
 gem "paperclip"
 gem "puma", "~> 3.0"
@@ -19,10 +20,15 @@ group :development, :test do
 end
 
 group :development do
+  gem "sqlite3"
   gem "web-console"
   gem "listen", "~> 3.0.5"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+end
+
+group :production do
+  gem "pg"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

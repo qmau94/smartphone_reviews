@@ -1,0 +1,46 @@
+  <div class="phone-name">
+    <%= @mobile.name %><br>
+    <%= @mobile.average("original_score").avg %>
+    <% if current_user && current_user.user? %>
+      Rate: <%= rating_for @mobile, "original_score", disable_after_rate: false,cancel_place: 'right', target: '#hintDiv', targetType: "hint" %>
+        <div id="hintDiv"></div>
+      <br>
+    <% end %>
+  </div>
+  <div class="phone-info">
+    <div class="col-md-4">
+      <%= image_tag @mobile.image.url, class: "col-md-offset-2" %>
+    </div>
+    <div class="col-md-4" style="height: 108px">
+      <i class="fa fa-calendar" aria-hidden="true"></i> Released <%= @mobile.launch_announced %> <br>
+      <i class="fa fa-mobile-phone" aria-hidden="true"></i> <%= @mobile.thickness%> <br>
+      <i class="fa fa-check" aria-hidden="true"></i> <%= @mobile.os %> <br>
+      <i class="fa fa-tags" aria-hidden="true"></i> <%= @mobile.storage %> <br>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <strong>RATE </strong><%= rating_for @mobile, "original_score", disable_after_rate: true, imdb_avg: true %>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <strong>SHARE</strong>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <i class="fa fa-arrows-alt fa-2x" aria-hidden="true"></i><br>
+      <%= @mobile.display %>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <i class="fa fa-camera fa-2x" aria-hidden="true"></i><br>
+      <%= @mobile.camera %>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <i class="fa fa-cog fa-2x" aria-hidden="true"></i><br>
+      <%= @mobile.ram %>
+    </div>
+    <div class="col-md-2" style="height: 108px">
+      <i class="fa fa-battery-full fa-2x" aria-hidden="true"></i><br>
+      <%= @mobile.battery_spec %>
+    </div>
+    <div class="col-md-12">
+      <%= link_to "Review", review_path(@mobile.review) %>
+    </div>
+  </div>
+

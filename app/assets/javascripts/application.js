@@ -11,7 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require ckeditor/init
 //= require jquery_ujs
+//= require jquery.raty
+//= require ratyrate
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
@@ -22,3 +25,26 @@ spinner = document.querySelector("#spinner");
 if (!sign) { angle = angle + 45; } else { angle = angle - 45; }
 spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-transform: rotateY("+ angle +"deg); transform: rotateY("+ angle +"deg);");
 }
+
+document.addEventListener("turbolinks:load", function() {
+  $(function() {
+
+      $('#login-form-link').click(function(e) {
+      $("#login-form").delay(100).fadeIn(100);
+      $("#register-form").fadeOut(100);
+      $('#register-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+    });
+    $('#register-form-link').click(function(e) {
+      $("#register-form").delay(100).fadeIn(100);
+      $("#login-form").fadeOut(100);
+      $('#login-form-link').removeClass('active');
+      $(this).addClass('active');
+      e.preventDefault();
+    });
+
+  });
+})
+
+

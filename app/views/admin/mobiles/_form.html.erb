@@ -1,0 +1,31 @@
+<div class="col-md-6">
+  <%= form_for [:admin, @mobile], html: {multipart: true} do |f| %>
+    <%= render "shared/error_message", object: @mobile %>
+    <%= f.label "Name" %>
+    <%= f.text_field :name, class: "form-control" %><br>
+
+    <%= f.label "Description" %>
+    <%= f.text_area :description, class: "form-control" %><br>
+
+    <%= f.label "Brand" %>
+    <%= f.select :mobile_brand_id , MobileBrand.all.collect{|b| [b.name, b.id]}, include_blank: true %><br>
+
+  <!-- Network<br>
+  Launch<br>
+  Body<br>
+  Display<br>
+  Platform<br>
+  Memory<br>
+  Camera<br>
+  Sound<br>
+  Comms<br>
+  Features<br>
+  Battery<br>
+  Misc<br>
+  Price<br> -->
+    <%= f.label "Image" %><br>
+    <%= image_tag @mobile.image.url(:thumb) if @mobile.image.present? %>
+    <%= f.file_field :image, class: "form-control" %>
+    <%= f.submit "#{params[:action]} phone".upcase, class: "btn btn-primary form-control" %>
+  <% end %>
+</div>

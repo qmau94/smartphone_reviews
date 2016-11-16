@@ -1,0 +1,33 @@
+<% provide :title, "All brands" %>
+<h1>All brands</h1>
+<%= link_to new_admin_mobile_brand_path do%>
+  <div class="btn btn-success">Add brand</div>
+<% end %>
+<table class="table table-bordered text-center">
+  <thead>
+    <td>Id</td>
+    <td>Image</td>
+    <td>Name</td>
+    <td>Description</td>
+    <td>Actions</td>
+  </thead>
+  <% @mobile_brands.each do |brand| %>
+    <tr>
+      <td> <%= brand.id %> </td>
+      <td> <%= image_tag brand.image.url(:thumb) %> </td>
+      <td> <%= link_to brand.name, [:admin, brand] %> </td>
+      <td> <%= brand.description %> </td>
+      <td>
+        <%= link_to edit_admin_mobile_brand_path(brand) do %>
+          <div class="btn btn-primary"> Edit </div>
+        <% end %>
+        <%= link_to admin_mobile_brand_path(brand), method: :delete, data: {confirm: "Are you sure?"} do %>
+          <div class="btn btn-danger"> Delete </div>
+        <% end %>
+        <%= link_to new_admin_mobile_path(brand: brand) do %>
+          <div class="btn btn-success">Add phone</div>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,12 +1,12 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
     <li class="sidebar-brand">
-      <%= link_to admin_root_path do %>
+      <%= link_to admin_dashboard_path do %>
         スマートフォンビュー
       <% end %>
     </li>
     <li class="panel-group">
-      <%= link_to admin_root_path do %>
+      <%= link_to admin_dashboard_path do %>
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
         Dashboard
       <% end %>
@@ -40,13 +40,27 @@
     <li class="panel-group">
       <a data-toggle="collapse" href="#course">
         <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-        Courses</a>
+        Brands</a>
       <ul id="course" class="panel-collapse collapse">
         <li>
-          <%= link_to t("courses.new"), "#" %>
+          <%= link_to "New brand", new_admin_mobile_brand_path %>
         </li>
         <li>
-          <%= link_to t("courses.index"), "#" %>
+          <%= link_to "Brands index", admin_mobile_brands_path %>
+        </li>
+      </ul>
+    </li>
+    <li class="panel-group">
+      <a data-toggle="collapse" href="#reviews">
+        <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+        Reviews
+      </a>
+      <ul id="reviews" class="panel-collapse collapse">
+        <li>
+          <%= link_to "New review", new_admin_review_path %>
+        </li>
+        <li>
+          <%= link_to "Reviews index", admin_reviews_path %>
         </li>
       </ul>
     </li>
