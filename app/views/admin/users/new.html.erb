@@ -1,39 +1,5 @@
 <% provide :title, "New user" %>
 <h1>Add User</h1>
 <div class="col-md-6">
-  <%= render "shared/error_message", object: @user %>
-  <%= form_for [:admin, @user] do |f| %>
-    <div class="field">
-      <%= f.label "Eメール" %><br />
-      <%= f.email_field :email, autofocus: true, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= f.label "名前" %><br />
-      <%= f.text_field :name, autofocus: true, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= f.label "代表イメージ" %><br />
-      <%= f.file_field :avatar, class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= f.label "パスワード" %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> 文字の最小)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-    </div>
-
-    <div class="field">
-      <%= f.label "パスワード確認" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "サインアップ", class: "form-control btn btn-primary" %>
-
-    </div>
-  <% end %>
+  <%= render "form" %>
 </div>

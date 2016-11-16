@@ -20,4 +20,12 @@ class Mobile < ApplicationRecord
     :comms_bluetooth, :comms_gps, :comms_nfc, :comms_radio, :comms_usb,
     :features_sensors, :features_messaging, :features_browser, :features_java,
     :features_misc, :battery, :misc_colors, :mobile_brand_id]
+
+  class << self
+    def search search
+      where(["name LIKE ?", "%#{search}%"]) ||
+      where(["description LIKE ?", "%#{search}%"])
+    end
+  end
+
 end

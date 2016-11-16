@@ -17,6 +17,19 @@ class Admin::UsersController < AdminController
     end
   end
 
+  def edit
+    @user = User.find params[:id]
+  end
+
+  def update
+    @user = User.find params[:id]
+    if @user.update_attributes user_params
+      flash[:success] = "#{@user.name} has been updated successfully"
+      redirect_to [:admin, @user]
+    else
+      flash[:danger] = "#{@user.name} is failed to be updated"
+    end
+  end
   def destroy
     @user = User.find params[:id]
     if @user.destroy

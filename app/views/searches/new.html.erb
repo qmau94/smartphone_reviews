@@ -1,0 +1,19 @@
+<% provide :title, "Search" %>
+<%= form_for @search do |f| %>
+  <%= f.label "Keywords" %>
+  <%= f.text_field :keywords, class: "form-control" %>
+
+  <%= f.label "Brand" %>
+  <%= f.select :mobile_brand_id , MobileBrand.all.collect{|b| [b.name, b.id]},
+    include_blank: true, class: "form-control" %><br>
+
+  <%= f.label "Price range" %>
+  <%= f.text_field :minimum_price, size: 10 %>
+  <%= f.text_field :maximum_price, size: 10 %>
+
+  <%= f.label "Rating" %>
+  <%= f.text_field :minimum_rate, size: 10 %>
+  <%= f.text_field :maximum_rate, size: 10 %>
+
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>

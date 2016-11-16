@@ -1,10 +1,7 @@
   <div class="phone-name">
     <%= @mobile.name %><br>
-    <% if current_user && current_user.user? %>
-      Rate: <%= rating_for @mobile, "original_score", disable_after_rate: false,cancel_place: 'right', target: '#hintDiv', targetType: "hint" %>
-        <div id="hintDiv"></div>
+      Rate: <%= rating_for @mobile, "original_score", disable_after_rate: false %>
       <br>
-    <% end %>
   </div>
   <div class="phone-info">
     <div class="col-md-4">
@@ -17,10 +14,12 @@
       <i class="fa fa-tags" aria-hidden="true"></i> <%= @mobile.storage %> <br>
     </div>
     <div class="col-md-2" style="height: 108px">
-      <strong>RATE </strong><%= rating_for @mobile, "original_score", disable_after_rate: true, imdb_avg: true %>
+      <strong>RATE </strong><br>
+      <h2><%= @mobile.average("original_score").avg %></h2>
     </div>
     <div class="col-md-2" style="height: 108px">
-      <strong>SHARE</strong>
+      <strong>PRICE</strong>
+      <h2><%= @mobile.price %></h2>
     </div>
     <div class="col-md-2" style="height: 108px">
       <i class="fa fa-arrows-alt fa-2x" aria-hidden="true"></i><br>
@@ -39,7 +38,7 @@
       <%= @mobile.battery_spec %>
     </div>
     <div class="col-md-12">
-      <%= link_to "Review", review_path(@mobile.review) %>
+      <%= link_to "Review", review_path(@mobile.review) if @mobile.review %>
     </div>
   </div>
 

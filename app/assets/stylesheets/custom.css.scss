@@ -267,3 +267,12 @@ div#carousel ~ span:hover { color: #888; cursor: pointer; }
     background-color: red;
   }
 }
+
+.navbar-search
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
