@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   enum role: {admin: 1, user: 0}
 
+
   ATTRIBUTES_PARAMS=[:name, :email, :password, :password_confirmation, :avatar,
     :role]
+
 end

@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
+
   belongs_to :user, optional: true
   belongs_to :mobile, optional: true
   has_many :comments
@@ -7,4 +8,5 @@ class Review < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   ATTRIBUTES_PARAMS = [:mobile_id, :content, :user_id, :image]
+
 end
