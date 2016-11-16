@@ -1,0 +1,16 @@
+<% provide :title, "Search results" %>
+
+<div class="col-md-9">
+  <% if @search.mobiles.any? %>
+    <% @search.mobiles.each do |mobile| %>
+      <%= link_to mobile_path(mobile) do %>
+      <div class="col-md-3 mobile_div">
+        <%= image_tag mobile.image.url(:medium), class: "image" %>
+        <div class="name text-center"><%= mobile.name.upcase %></div>
+      </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    There is no phone
+  <% end %>
+</div>

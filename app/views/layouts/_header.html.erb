@@ -12,13 +12,17 @@
       <% end %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav center-block">
+      <ul class="nav navbar-nav center-block navbar-search">
+        <%= form_tag mobiles_path, class: "navbar-form",method: "get" do %>
+          <p>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], class: "form-control"%>
+              <%= submit_tag "Search", class: "btn btn-default" %>
+            </div>
+          </p>
+        <% end %>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索">
-        </div>
-      </form>
+
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to "こんにちは、#{current_user.name}", "#" %></li>
@@ -34,8 +38,6 @@
       <ul>
         <li><%= link_to "ホームページ", root_path %></li>
         <li><%= link_to "レビュー", reviews_path %></li>
-        <li><a href="#">カテゴリ</a></li>
-        <li><a href="#">ニュス</a></li>
         <li><%= link_to "連絡", contact_path %></li>
       </ul>
     </div>

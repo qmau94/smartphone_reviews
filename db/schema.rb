@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104095545) do
+ActiveRecord::Schema.define(version: 20161115070022) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 20161104095545) do
     t.string   "camera"
     t.string   "ram"
     t.string   "battery_spec"
+    t.float    "price"
     t.index ["mobile_brand_id"], name: "index_mobiles_on_mobile_brand_id"
   end
 
@@ -182,6 +183,15 @@ ActiveRecord::Schema.define(version: 20161104095545) do
     t.datetime "image_updated_at"
     t.index ["mobile_id"], name: "index_reviews_on_mobile_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string  "keywords"
+    t.integer "mobile_brand_id"
+    t.float   "minimum_price"
+    t.float   "maximum_price"
+    t.float   "minimum_rate"
+    t.float   "maximum_rate"
   end
 
   create_table "users", force: :cascade do |t|
