@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:show, :index] do
     resources :comments, only: [:create, :destroy]
   end
+  get "contact",to: 'contact#contact'
   namespace :admin do
     resources :mobiles
     get "dashboard", to: "pages#home"
