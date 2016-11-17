@@ -1,4 +1,6 @@
-<%= form_for [@review, @review.comments.build] do |f| %>
-  <%= f.text_field :content, class: "form-control" %>
-  <%= f.submit %>
+<% @comment = @commentable.comments.build %>
+<%= form_for [@comment.commentable, @comment] do |f| %>
+  <% f.hidden_field :parent_id %>
+  <%= f.text_field :content, class: "form-control", placeholder: (f.object.parent_id.nil? ? "Share your idea." : "Leave your reply."), input_html: {rows: 5} %>
+  <%= f.submit "Comment", class: "btn btn-default" %>
 <% end %>

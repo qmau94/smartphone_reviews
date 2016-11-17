@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find params[:id]
+    @commentable = @review
   end
 
 end

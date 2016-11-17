@@ -1,0 +1,5 @@
+<% provide :title, "Reply" %>
+<%= form_for @comment, url:new_review_comment_comment_path do |f| %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
