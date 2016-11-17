@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-2" style="height: 108px">
       <strong>RATE </strong><br>
-      <h2><%= @mobile.average("original_score").avg %></h2>
+      <h2><%= @mobile.average("original_score").avg if @mobile.average("original_score")%></h2>
     </div>
     <div class="col-md-2" style="height: 108px">
       <strong>PRICE</strong>

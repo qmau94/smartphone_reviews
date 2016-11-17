@@ -1,22 +1,23 @@
 <div class="col-md-3">
   <p class="lead">メーカー</p>
   <div class="list-group">
-    <% MobileBrand.all.each do |brand| %>
-      <%= link_to brand.name, mobile_brand_path(brand), class: "list-group-item" %>
+    <% MobileBrand.first(5).each do |brand| %>
+      <%= link_to brand.name, brand, class: "list-group-item" %>
     <% end %>
+    <%= link_to "All brands", mobile_brands_path, class: "list-group-item" %>
   </div>
 
   <p class="lead">トップレビュー</p>
   <div class="list-group">
   <% Review.joins(:comments).group("reviews.id").order("count(comments.id) desc").first(5).each do |review| %>
-    <%= link_to review.mobile.name, review_path(review), class: "list-group-item" %>
+    <%= link_to review.mobile.name, review, class: "list-group-item" %>
   <% end %>
   </div>
 
   <p class="lead">人気な製品</p>
   <div class="list-group">
   <% Mobile.with_ratings.first(5).each do |mobile| %>
-    <a href="#" class="list-group-item"><%= mobile.name %></a>
+    <%= link_to mobile.name, mobile, class: "list-group-item" %>
   <% end %>
   </div>
 </div>

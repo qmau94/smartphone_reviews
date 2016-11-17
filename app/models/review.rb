@@ -2,7 +2,7 @@ class Review < ApplicationRecord
 
   belongs_to :user, optional: true
   belongs_to :mobile, optional: true
-  has_many :comments
+  has_many :comments, as: :commentable, dependent: :destroy
 
   has_attached_file :image, styles: { medium: "730x230>", thumb: "350x150>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/

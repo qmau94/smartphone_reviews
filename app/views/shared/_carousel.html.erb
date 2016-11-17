@@ -1,27 +1,18 @@
-       <section id="dg-container" class="dg-container">
-                <div class="dg-wrapper">
+<section id="dg-container" class="dg-container">
+  <div class="dg-wrapper">
+  <% 4.times do |i|%>
+    <%= link_to mobile_path Mobile.find(i+1) do %>
+     <%= image_tag Mobile.find(i+1).image, :alt => "image0#{i+1}"%>
+    <% end %> </a>
+  <% end %>
 
-               <%= link_to root_path do %>
-                   <%= image_tag "1.jpg", :alt => "image01"%>
-                <% end %> </a>
+</div>
+    </section>
 
-               <%= link_to root_path do %>
-                   <%= image_tag "2.jpg", :alt => "image02"%>
-                <% end %> </a>
-               <%= link_to root_path do %>
-                   <%= image_tag "3.jpg", :alt => "image03"%>
-                <% end %>
-              <%= link_to root_path do %>
-                   <%= image_tag "4.jpg", :alt => "image05"%>
-                <% end %>
-                
-        </div>
-            </section>
-
-        <script type="text/javascript">
-            $(function() {
-                $('#dg-container').gallery({
-                    autoplay    :   true
-                });
-            });
-        </script/
+<script type="text/javascript">
+    $(function() {
+        $('#dg-container').gallery({
+            autoplay: true
+        });
+    });
+</script>
