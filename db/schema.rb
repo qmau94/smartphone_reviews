@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(version: 20161116164901) do
   end
 
   create_table "reviews", force: :cascade do |t|
+    t.string   "title"
     t.string   "content"
     t.string   "mobile"
     t.integer  "user_id"
