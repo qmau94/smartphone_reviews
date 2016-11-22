@@ -79,6 +79,7 @@ MobileBrand.create!([
 end
 
 
+  
 content = "<p>Trong buổi lễ ra mắt iPhone 7, Apple đ&atilde; tự h&agrave;o về bước đi t&aacute;o bạo của việc loại bỏ đi jack &acirc;m thanh 3.5mm. Nhưng x&eacute;t về tổng thể th&igrave; dường như họ đ&atilde; đi v&agrave;o con đường m&ograve;n khi thiết kế b&ecirc;n ngo&agrave;i chiếc iPhone mới cơ bản giống với người tiền nhiệm iPhone 6.</p>
 
 circ;n mạnh mẽ so với iPhone 6s về cả thiết kế lẫn hiệu năng, nhưng Apple đ&atilde; biết c&aacute;ch ho&agrave;n thiện n&oacute; hơn kh&aacute; nhiều khắc phục được tương đối c&aacute;c điểm yếu c&oacute; mặt tr&ecirc;n thế hệ cũ đặc bi&ecirc;t l&agrave; thời lượng pin v&agrave; camera. D&ugrave; thế n&agrave;o đi chẳng nữa th&igrave; iPhone 7 vẫn l&agrave; một sự lựa chọn rất tuyệt vời trong những chiếc flagship hiện tại v&igrave; n&oacute; thực sự to&agrave;n diện.</p>

@@ -10,19 +10,80 @@
     <%= f.label "Brand" %>
     <%= f.select :mobile_brand_id , MobileBrand.all.collect{|b| [b.name, b.id]}, include_blank: true %><br>
 
-  <!-- Network<br>
-  Launch<br>
-  Body<br>
-  Display<br>
-  Platform<br>
-  Memory<br>
-  Camera<br>
-  Sound<br>
-  Comms<br>
-  Features<br>
-  Battery<br>
-  Misc<br>
-  Price<br> -->
+  <%= f.label "Network" %>
+  <%= f.text_field :network_technology, class: "form-control" %><br>
+  <%= f.label "Launch announced " %>
+  <%= f.text_field :launch_announced, class: "form-control" %><br>
+  <%= f.label "Launch status " %>
+  <%= f.text_field :launch_status, class: "form-control" %><br>
+  <%= f.label "Body weight" %>
+  <%= f.text_field :body_weight, class: "form-control" %><br>
+  <%= f.label "Body dimensions" %>
+  <%= f.text_field :body_dimensions, class: "form-control" %><br>
+  <%= f.label "Body sim" %>
+  <%= f.text_field :body_sim, class: "form-control" %><br>
+  <%= f.label "Display size" %>
+  <%= f.text_field :display_size, class: "form-control" %><br>
+  <%= f.label "Display type" %>
+  <%= f.text_field :display_type, class: "form-control" %><br>
+  <%= f.label "Display resolution" %>
+  <%= f.text_field :display_resolution, class: "form-control" %><br>
+  <%= f.label "Display multitouch" %>
+  <%= f.text_field :display_multitouch, class: "form-control" %><br>
+ 
+  <%= f.label "Platform OS" %>
+  <%= f.text_field :platform_os, class: "form-control" %><br>
+  <%= f.label "Platform chipset" %>
+  <%= f.text_field :platform_chipset, class: "form-control" %><br>
+  <%= f.label "Platform GPU" %>
+  <%= f.text_field :platform_GPU, class: "form-control" %><br>
+  <%= f.label "Platform CPU" %>
+  <%= f.text_field :platform_CPU, class: "form-control" %><br>
+  <%= f.label "Memory internal" %>
+  <%= f.text_field :memory_internal, class: "form-control" %><br>
+  <%= f.label "Memory cardslot" %>
+  <%= f.text_field :memory_cardslot, class: "form-control" %><br>
+  <%= f.label "Camera features" %>
+  <%= f.text_field :camera_features, class: "form-control" %><br>
+  <%= f.label "Camera primary" %>
+  <%= f.text_field :camera_primary, class: "form-control" %><br>
+  <%= f.label "Camera video" %>
+  <%= f.text_field :camera_video, class: "form-control" %><br>
+  <%= f.label "Camera secondary" %>
+  <%= f.text_field :camera_secondary, class: "form-control" %><br>
+  <%= f.label "Sound alerttypes" %>
+  <%= f.text_field :sound_alerttypes, class: "form-control" %><br>
+  <%= f.label "Sound 35mmjack" %>
+  <%= f.text_field :sound_35mmjack, class: "form-control" %><br>
+ <%= f.label "Sound loudspeakers" %>
+  <%= f.text_field :sound_loudspeakers, class: "form-control" %><br>
+  <%= f.label "Comms GPS" %>
+  <%= f.text_field :comms_gps, class: "form-control" %><br>
+ <%= f.label "Comms WLAN" %>
+  <%= f.text_field :comms_wlan, class: "form-control" %><br>
+  <%= f.label "Comms Bluetooth" %>
+  <%= f.text_field :comms_bluetooth, class: "form-control" %><br>
+  <%= f.label "Comms NFC" %>
+  <%= f.text_field :comms_nfc, class: "form-control" %><br>
+  <%= f.label "Comms RADIO" %>
+  <%= f.text_field :comms_radio, class: "form-control" %><br>
+  <%= f.label "Comms USB" %>
+  <%= f.text_field :comms_usb, class: "form-control" %><br>
+  <%= f.label "Features Browser" %>
+  <%= f.text_field :features_browser, class: "form-control" %><br>
+ <%= f.label "Features sensor" %>
+  <%= f.text_field :features_sensors, class: "form-control" %><br>
+  <%= f.label "Features java" %>
+  <%= f.text_field :features_java, class: "form-control" %><br>
+  <%= f.label "Features messaging" %>
+  <%= f.text_field :features_messaging, class: "form-control" %><br>
+  <%= f.label "Features misc" %>
+  <%= f.text_field :features_misc, class: "form-control" %><br>
+  <%= f.label "Battery" %>
+  <%= f.text_field :battery, class: "form-control" %><br>
+  <%= f.label "Misc" %>
+  <%= f.text_field :misc_colors, class: "form-control" %><br>
+
     <%= f.label "Image" %><br>
     <%= image_tag @mobile.image.url(:thumb) if @mobile.image.present? %>
     <%= f.file_field :image, class: "form-control" %>

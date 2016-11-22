@@ -14,16 +14,19 @@
 
   <body>
   <div class="container">
-    <%= render "layouts/header" %>
-    <%= render "layouts/flash" %>
-    <% unless params[:controller] == "static_pages" ||
-      params[:controller] == "devise/sessions"%>
-      <%= render "static_pages/side_bar" %>
-    <% end %>
-    <div>
-      <%= yield %>
+    <div class="row">
+      <%= render "layouts/header" %>
+      <%= render "layouts/flash" %>
+      <% unless params[:controller] == "static_pages" ||
+        params[:controller] == "devise/sessions"%>
+        <%= render "static_pages/side_bar" %>
+      <% end %>
+      <div>
+        <%= yield %>
+        <%= render "layouts/footer" %>
+      </div>
     </div>
-    <%= render "layouts/footer" %>
+    
   </div>
   </body>
 </html>
