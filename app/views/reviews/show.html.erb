@@ -1,4 +1,4 @@
-<% provide :title, "#{@review.mobile.name} review" %>
+<% provide :title, "#{@review.title} review" %>
 <div class="col-md-12 review-image" style="background-image: url(<%= @review.image.url %>)">
   <div class="col-md-3">
     <h2><span class="label label-danger"><%= @review.user.name %></span></h2>
@@ -8,6 +8,9 @@
     <%= link_to @review.mobile.name.upcase, mobile_path(@review.mobile), class: "btn btn-default" %>
   </div>
 </div>
+Rate this review: <%= rating_for @review, "original_score", disable_after_rate: false %>
+RATE:
+<%= @review.average("original_score").avg if @review.average("original_score") %>
 <div class="review" style="padding-top: 20px">
   <%= @review.content.html_safe %>
 </div>

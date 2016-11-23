@@ -9,7 +9,7 @@
 
   <p class="lead">トップレビュー</p>
   <div class="list-group">
-  <% Review.joins(:comments).group("reviews.id").order("count(comments.id) desc").first(5).each do |review| %>
+  <% Review.with_ratings.first(5).each do |review| %>
     <%= link_to review.mobile.name, review, class: "list-group-item" %>
   <% end %>
   </div>
