@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116164901) do
+ActiveRecord::Schema.define(version: 20161207035847) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -44,11 +44,9 @@ ActiveRecord::Schema.define(version: 20161116164901) do
     t.integer  "review_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "parent_id"
     t.string   "commentable_type"
     t.integer  "commentable_id"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
-    t.index ["parent_id"], name: "index_comments_on_parent_id"
     t.index ["review_id"], name: "index_comments_on_review_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -219,6 +217,8 @@ ActiveRecord::Schema.define(version: 20161116164901) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
