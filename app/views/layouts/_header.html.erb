@@ -1,47 +1,80 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to root_path do %>
-          <a class="navbar-brand" href="#">スマートフォンビュー</a>
-        <% end %>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav center-block navbar-search">
-          <%= form_tag mobiles_path, class: "navbar-form",method: "get" do %>
-            <p>
-              <div class="form-group">
-                <%= text_field_tag :search, params[:search], class: "form-control"%>
-                <%= submit_tag "Search", class: "btn btn-default" %>
-              </div>
-            </p>
-          <% end %>
-        </ul>
-  
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-            <li><%= link_to "こんにちは、#{current_user.name}", "#" %></li>
-            <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path,
-              method: :delete %></li>
-          <% else %>
-            <li><%= link_to "ログイン  サインアップ", new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="second-row" style="background:#3b5998">
-        <ul>
-          <li><%= link_to "ホームページ", root_path %></li>
-          <li><%= link_to "レビュー", reviews_path %></li>
-          <li><%= link_to "連絡", contact_path %></li>
-        </ul>
+<header id="header"><!--header-->
+  <div class="header_top"><!--header_top-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="contactinfo">
+            <ul class="nav nav-pills">
+              <li><a href="#"><i class="fa fa-phone"></i> +84 905 068 885</a></li>
+              <li><a href="#"><i class="fa fa-envelope"></i> qmau94@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="social-icons pull-right">
+            <ul class="nav navbar-nav">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </div><!--/header_top-->
+
+  <div class="header-middle"><!--header-middle-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="logo pull-left">
+            <a class="navbar-brand" href="<%= root_url %>">SMARTPHONE-REVIEW</a>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="search_box pull-right">
+            <%= form_tag mobiles_path,method: "get" do %>
+                  <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="shop-menu pull-right">
+            <ul class="nav navbar-nav">
+              <% if user_signed_in? %>
+                <li><%= link_to "Hello, #{current_user.name}", "#" %></li>
+                  <li><a href="<%= destroy_user_session_path %>" data-method="delete" ><i class="fa fa-lock"></i> Sign out</a></li>
+              <% else %>
+                <li><a href="<%= new_user_registration_path %>"><i class="fa fa-user"></i>Sign up</a></li>
+                <li><a href="<%= new_user_session_path %>"><i class="fa fa-lock"></i> Sign in</a></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/header-middle-->
+
+  <div class="header-bottom"><!--header-bottom-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="mainmenu pull-left">
+            <ul class="nav navbar-nav collapse navbar-collapse">
+              <li><a href="<%=root_url%>">Home</a></li>
+              <li class="dropdown"><a href="<%= reviews_path %>">Reviews</a></li>
+              <li><a href="<%= contact_path %>">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--/header-bottom-->
+</header><!--/header-->

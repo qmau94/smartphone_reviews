@@ -1,11 +1,6 @@
 <% provide :title, "#{@brand.name}"%>
-<div class="col-md-9">
-  <% @mobiles.each do |mobile| %>
-    <%= link_to mobile_path(mobile) do %>
-    <div class="col-md-3 mobile_div">
-      <%= image_tag mobile.image.url(:medium), class: "image" %>
-      <div class="name text-center"><%= mobile.name.upcase %></div>
-    </div>
-    <% end %>
-  <% end %>
-</div>
+
+<div class="features_items"><!--features_items-->
+  <h2 class="title text-center"><%= @brand.name %> Phones</h2>
+  <%= render @brand.mobiles %>
+</div><!--features_items-->

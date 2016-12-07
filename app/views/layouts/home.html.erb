@@ -13,20 +13,18 @@
   </head>
 
   <body>
-  <div class="container">
-    <div class="row">
-      <%= render "layouts/header" %>
-      <%= render "layouts/flash" %>
-      <% unless params[:controller] == "static_pages" ||
-        params[:controller] == "devise/sessions"%>
-        <%= render "static_pages/side_bar" %>
-      <% end %>
-      <div>
-        <%= yield %>
-        <%= render "layouts/footer" %>
+    <%= render "layouts/header" %>
+    <%= render "shared/carousel" %>
+     <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+            <%= render "static_pages/side_bar"%>
+        </div>
+        <div class="col-sm-9 padding-right">
+          <%= yield %>
+        </div>
       </div>
     </div>
-    
-  </div>
+    <%= render "layouts/footer"%>
   </body>
 </html>

@@ -1,162 +1,234 @@
-<table class="table table-bordered">
-  <tr>
-    <td>Network</td>
-    <td>Technology</td>
-    <td><%= @mobile.network_technology %></td>
-  </tr>
-  <tr>
-    <td rowspan="2">Launch</td>
-    <td>Annouced</td>
-    <td><%= @mobile.launch_announced %></td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td><%= @mobile.launch_status %></td>
-  </tr>
-  <tr>
-    <td rowspan="3">Body</td>
-    <td>Dimensions</td>
-    <td><%= @mobile.body_dimensions %></td>
-  </tr>
-  <tr>
-    <td>Weight</td>
-    <td><%= @mobile.body_weight %></td>
-  </tr>
-  <tr>
-    <td>Sim</td>
-    <td><%= @mobile.body_sim %></td>
-  </tr>
-  <tr>
-  <td rowspan="4">Display</td>
-  <td>Type</td>
-  <td><%= @mobile.display_type %></td>
-  </tr>
-  <tr>
-    <td>Size</td>
-    <td><%= @mobile.display_size %></td>
-  </tr>
-  <tr>
-    <td>Resolution</td>
-    <td><%= @mobile.display_resolution %></td>
-  </tr>
-  <tr>
-    <td>Multitouch</td>
-    <td><%= @mobile.display_multitouch %></td>
-  </tr>
-  <tr>
-    <td rowspan="4">Platform</td>
-    <td>OS</td>
-    <td><%= @mobile.platform_os %></td>
-  </tr>
-  <tr>
-    <td>Chipset</td>
-    <td><%= @mobile.platform_chipset %></td>
-  </tr>
-  <tr>
-    <td>CPU</td>
-    <td><%= @mobile.platform_CPU %></td>
-  </tr>
-  <tr>
-    <td>GPU</td>
-    <td><%= @mobile.platform_GPU %></td>
-  </tr>
-  <tr>
-    <td rowspan="2">Memory</td>
-    <td>Cardslot</td>
-    <td><%= @mobile.memory_cardslot %></td>
-  </tr>
-  <tr>
-    <td>Internal</td>
-    <td><%= @mobile.memory_internal %></td>
-  </tr>
-  <tr>
-    <td rowspan="4">Camera</td>
-    <td>Primary</td>
-    <td><%= @mobile.camera_primary %></td>
-  </tr>
-  <tr>
-    <td>Features</td>
-    <td><%= @mobile.camera_features %></td>
-  </tr>
-  <tr>
-    <td>Video</td>
-    <td><%= @mobile.camera_video %></td>
-  </tr>
-  <tr>
-    <td>Secondary</td>
-    <td><%= @mobile.camera_secondary %></td>
-  </tr>
-  <tr>
-    <td rowspan="3">Sound</td>
-    <td>Alert Types</td>
-    <td><%= @mobile.sound_alerttypes %></td>
-  </tr>
-  <tr>
-    <td>Loudspeakers</td>
-    <td><%= @mobile.sound_loudspeakers %></td>
-  </tr>
-  <tr>
-    <td>3,5mm jack</td>
-    <td><%= @mobile.sound_35mmjack %></td>
-  </tr>
-  <tr>
-    <td rowspan="6">Comms</td>
-    <td>WLAN</td>
-    <td><%= @mobile.comms_wlan %></td>
-  </tr>
-  <tr>
-    <td>Bluetooth</td>
-    <td><%= @mobile.comms_bluetooth %></td>
-  </tr>
-  <tr>
-    <td>GPS</td>
-    <td><%= @mobile.comms_gps %></td>
-  </tr>
-  <tr>
-    <td>NFC</td>
-    <td><%= @mobile.comms_nfc %></td>
-  </tr>
-  <tr>
-    <td>Radio</td>
-    <td><%= @mobile.comms_radio %></td>
-  </tr>
-  <tr>
-    <td>USB</td>
-    <td><%= @mobile.comms_usb %></td>
-  </tr>
-  <tr>
-    <td rowspan="5">Features</td>
-    <td>Sensors</td>
-    <td><%= @mobile.features_sensors %></td>
-  </tr>
-  <tr>
-    <td>Messaging</td>
-    <td><%= @mobile.features_messaging %></td>
-  </tr>
-  <tr>
-    <td>Browser</td>
-    <td><%= @mobile.features_browser %></td>
-  </tr>
-  <tr>
-    <td>Java</td>
-    <td><%= @mobile.features_java %></td>
-  </tr>
-  <tr>
-    <td>Misc</td>
-    <td><%= @mobile.features_misc %></td>
-  </tr>
-  <tr>
-    <td>Battery</td>
-    <td></td>
-    <td><%= @mobile.battery %></td>
-  </tr>
-  <tr>
-    <td rowspan="2">Misc</td>
-    <td>Misc colors</td>
-    <td><%= @mobile.misc_colors %></td>
-  </tr>
-  <tr>
-    <td>Price groups</td>
-    <td><%= @mobile.price_groups %></td>
-  </tr>
-</table>
+<div class="product-details"><!--product-details-->
+  <div class="col-sm-5">
+    <div class="view-product">
+      <%= image_tag @mobile.image.url(:medium) ,class:"img"%>
+    </div>
+
+  </div>
+  <div class="col-sm-7">
+    <div class="product-information"><!--/product-information-->
+      <h2><%= @mobile.name %></h2>
+      <p><%= @mobile.description %></p>
+      <p> <%= rating_for @mobile, "original_score", disable_after_rate: false %></p>
+
+      <span>
+        <span><%= @mobile.mobile_brand.name%></span>
+        <a href="<%= mobile_brand_path(@mobile.mobile_brand)%>" type="button" class="btn btn-fefault cart">
+          All products
+        </a>
+      </span>
+      <p><b>Launch:</b> <%= @mobile.launch_announced %></p>
+      <p><b>Display:</b> <%= @mobile.display_size %></p>
+      <p><b>Chipset:</b> <%= @mobile.platform_chipset %></p>
+      <p><b>CPU:</b> <%= @mobile.platform_CPU %></p>
+      <p><b>GPU:</b> <%= @mobile.platform_GPU %></p>
+      <p><b>RAM:</b> <%= @mobile.ram %></p>
+      <p><b>OS:</b> <%= @mobile.os %></p>
+      <p><b>Primary Camera:</b> <%= @mobile.camera_primary %></p>
+      <p><b>Secondary Camera:</b> <%= @mobile.camera_secondary %></p>
+      <p><b>Storage:</b> <%= @mobile.storage %></p>
+      <p><b>Batery:</b> <%= @mobile.battery_spec %></p>
+      <p><b>Price group:</b> <%= @mobile.price_groups %></p>
+    </div><!--/product-information-->
+  </div>
+</div><!--/product-details-->
+
+<div class="category-tab shop-details-tab"><!--category-tab-->
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs">
+      <li><a href="#details" data-toggle="tab">Details</a></li>
+      <li><a href="#companyprofile" data-toggle="tab">Brand</a></li>
+      <% if @mobile.review %>
+        <li class="active"><a href="#reviews" data-toggle="tab">Comments (<%= @mobile.review.comments.count %>)</a></li>
+      <% else %>
+        <li class="active"><a href="#reviews" data-toggle="tab">Comments (0)</a></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div class="tab-pane fade" id="details" >
+      <table class="table table-bordered">
+        <tr>
+          <td>Network</td>
+          <td>Technology</td>
+          <td><%= @mobile.network_technology %></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Launch</td>
+          <td>Annouced</td>
+          <td><%= @mobile.launch_announced %></td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td><%= @mobile.launch_status %></td>
+        </tr>
+        <tr>
+          <td rowspan="3">Body</td>
+          <td>Dimensions</td>
+          <td><%= @mobile.body_dimensions %></td>
+        </tr>
+        <tr>
+          <td>Weight</td>
+          <td><%= @mobile.body_weight %></td>
+        </tr>
+        <tr>
+          <td>Sim</td>
+          <td><%= @mobile.body_sim %></td>
+        </tr>
+        <tr>
+        <td rowspan="4">Display</td>
+        <td>Type</td>
+        <td><%= @mobile.display_type %></td>
+        </tr>
+        <tr>
+          <td>Size</td>
+          <td><%= @mobile.display_size %></td>
+        </tr>
+        <tr>
+          <td>Resolution</td>
+          <td><%= @mobile.display_resolution %></td>
+        </tr>
+        <tr>
+          <td>Multitouch</td>
+          <td><%= @mobile.display_multitouch %></td>
+        </tr>
+        <tr>
+          <td rowspan="4">Platform</td>
+          <td>OS</td>
+          <td><%= @mobile.platform_os %></td>
+        </tr>
+        <tr>
+          <td>Chipset</td>
+          <td><%= @mobile.platform_chipset %></td>
+        </tr>
+        <tr>
+          <td>CPU</td>
+          <td><%= @mobile.platform_CPU %></td>
+        </tr>
+        <tr>
+          <td>GPU</td>
+          <td><%= @mobile.platform_GPU %></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Memory</td>
+          <td>Cardslot</td>
+          <td><%= @mobile.memory_cardslot %></td>
+        </tr>
+        <tr>
+          <td>Internal</td>
+          <td><%= @mobile.memory_internal %></td>
+        </tr>
+        <tr>
+          <td rowspan="4">Camera</td>
+          <td>Primary</td>
+          <td><%= @mobile.camera_primary %></td>
+        </tr>
+        <tr>
+          <td>Features</td>
+          <td><%= @mobile.camera_features %></td>
+        </tr>
+        <tr>
+          <td>Video</td>
+          <td><%= @mobile.camera_video %></td>
+        </tr>
+        <tr>
+          <td>Secondary</td>
+          <td><%= @mobile.camera_secondary %></td>
+        </tr>
+        <tr>
+          <td rowspan="3">Sound</td>
+          <td>Alert Types</td>
+          <td><%= @mobile.sound_alerttypes %></td>
+        </tr>
+        <tr>
+          <td>Loudspeakers</td>
+          <td><%= @mobile.sound_loudspeakers %></td>
+        </tr>
+        <tr>
+          <td>3,5mm jack</td>
+          <td><%= @mobile.sound_35mmjack %></td>
+        </tr>
+        <tr>
+          <td rowspan="6">Comms</td>
+          <td>WLAN</td>
+          <td><%= @mobile.comms_wlan %></td>
+        </tr>
+        <tr>
+          <td>Bluetooth</td>
+          <td><%= @mobile.comms_bluetooth %></td>
+        </tr>
+        <tr>
+          <td>GPS</td>
+          <td><%= @mobile.comms_gps %></td>
+        </tr>
+        <tr>
+          <td>NFC</td>
+          <td><%= @mobile.comms_nfc %></td>
+        </tr>
+        <tr>
+          <td>Radio</td>
+          <td><%= @mobile.comms_radio %></td>
+        </tr>
+        <tr>
+          <td>USB</td>
+          <td><%= @mobile.comms_usb %></td>
+        </tr>
+        <tr>
+          <td rowspan="5">Features</td>
+          <td>Sensors</td>
+          <td><%= @mobile.features_sensors %></td>
+        </tr>
+        <tr>
+          <td>Messaging</td>
+          <td><%= @mobile.features_messaging %></td>
+        </tr>
+        <tr>
+          <td>Browser</td>
+          <td><%= @mobile.features_browser %></td>
+        </tr>
+        <tr>
+          <td>Java</td>
+          <td><%= @mobile.features_java %></td>
+        </tr>
+        <tr>
+          <td>Misc</td>
+          <td><%= @mobile.features_misc %></td>
+        </tr>
+        <tr>
+          <td>Battery</td>
+          <td></td>
+          <td><%= @mobile.battery %></td>
+        </tr>
+        <tr>
+          <td rowspan="2">Misc</td>
+          <td>Misc colors</td>
+          <td><%= @mobile.misc_colors %></td>
+        </tr>
+        <tr>
+          <td>Price groups</td>
+          <td><%= @mobile.price_groups %></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="tab-pane fade" id="companyprofile" >
+      <div class="col-sm-12">
+        <p>Name: <%= @mobile.mobile_brand.name %></p>
+        <p>Description: <%= @mobile.mobile_brand.description %></p>
+        <p>Products:</p>
+        <%= render partial: "mobiles/mobile_small", collection: @mobiles = @mobile.mobile_brand.mobiles.first(4) %>
+        </div>
+    </div>
+
+    <div class="tab-pane fade active in" id="reviews" >
+      <% if @mobile.review %>
+        <a  class="btn btn-primary" href="<%=review_path(@mobile.review)%>"><%= @mobile.name %> review</a>
+      <% else %>
+        NO REVIEW FOR THIS PHONE YET
+      <% end %>
+
+    </div>
+
+  </div>
+</div><!--/category-tab-->
+
