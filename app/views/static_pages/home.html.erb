@@ -1,59 +1,29 @@
-<%= provide :title, "ホームページ" %>
-<%= render "shared/carousel"%>
-<div class="container">
-  <%= render "side_bar"%>
-  <div class="col-sm-9">
-  <table class="table table-borderless">
-    <p><strong>最新のレビュー</strong></p>
-    <div class="col-sm-9" id="index_main_content">
-	    <div class="row">
-	    	<div class="col-sm-12 row_title_container">
-	    		<div class="row_title">
-		    		<h3 class="pull-left">TOP Mobile </h3>
-		    		<a href="" class="text-right pull-right">
-		    			<u><i class="fa fa-hand-o-right"></i> Xem thêm</u>
-	    			</a>
-		    		<div class="clearfix"></div>
-	    		</div>
-	    	</div>
-	    	<div class="col-sm-3 col-xs-6">
-	    		<img src="/demo.png" class="full_width">
-	    	</div>
-	    	<div class="col-sm-3 col-xs-6">
-	    		<img src="/img/demo.png" class="full_width">
-	    	</div>
-	    	<div class="col-sm-3 col-xs-6">
-	    		<img src="/img/demo.png" class="full_width">
-	    	</div>
-	    	<div class="col-sm-3 col-xs-6">
-	    		<img src="/img/demo.png" class="full_width">
-	    	</div>
-	    </div>
-		    <div class="row">
-		    	<div class="col-sm-12 row_title_container">
-		    		<div class="row_title">
-			    		<h3 class="pull-left">Sách mới nhất</h3>
-			    		<a href="/books" class="text-right pull-right">
-			    			<u><i class="fa fa-hand-o-right"></i> Xem thêm</u>
-		    			</a>
-			    		<div class="clearfix"></div>
-		    		</div>
-		    	</div>
-			    	<div class="col-sm-3 col-xs-6">
-			    		<a href="/mobiles/1">
-				    		<img src="/uploads/book/img_path/2/12195906_414985825369321_1486747574772345651_n.jpg" class="full_width">
-				    		<h5>Hôm nay là một ngay dẹp troi</h5>
-			    		</a>
-			    	</div>
-			    	<div class="col-sm-3 col-xs-6">
-			    		<a href="/mobiles/2">
-				    		<img src="/uploads/book/img_path/1/Koala.jpg" class="full_width">
-				    		<h5>demo</h5>
-			    		</a>
-			    	</div>
-		    </div>
-	</div>
-  </table>
-  </div>
-  
+
+<div class="blog-post-area">
+  <h2 class="title text-center">Latest Reviews</h2>
+  <%= render Review.first %>
 </div>
+
+<div class="features_items"><!--features_items-->
+  <h2 class="title text-center">Lastest Phones</h2>
+  <%= render Mobile.first(6)%>
+</div><!--features_items-->
+
+<div class="category-tab"><!--category-tab-->
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs">
+    <% MobileBrand.first(9).each do |brand| %>
+      <li><a href="#<%= brand.name %>" data-toggle="tab"><%= brand.name %></a></li>
+    <% end %>
+    </ul>
+  </div>
+  <div class="tab-content">
+  <% MobileBrand.first(9).each do |brand| %>
+    <div class="tab-pane fade" id="<%=brand.name %>">
+      <%= render partial: "mobiles/mobile_small", collection: @mobiles = brand.mobiles.first(4) %>
+    </div>
+  <% end %>
+  </div>
+</div><!--/category-tab-->
+
+<%= render "shared/viewed_mobiles"%>

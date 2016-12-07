@@ -1,44 +1,27 @@
-  <div class="phone-name">
-    <%= @mobile.name %><br>
-      Rate: <%= rating_for @mobile, "original_score", disable_after_rate: false %>
-      <br>
+<div class="col-sm-4">
+  <div class="product-image-wrapper">
+    <div class="single-products">
+        <div class="productinfo text-center">
+          <%= image_tag mobile.image.url(:medium) ,class:"img"%>
+          <h2><%= mobile.name %></h2>
+          <a href="<%= mobile_path mobile%>" class="btn btn-default add-to-cart"><i class="fa fa-star-o "></i><%= mobile.average("original_score").avg if mobile.average("original_score")%></a>
+        </div>
+        <div class="product-overlay">
+          <div class="overlay-content">
+            <h2><%= mobile.name%></h2>
+            <p><%= rating_for mobile, "original_score", disable_after_rate: true %></p>
+            <a href="<%= mobile_path mobile%>" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Details</a>
+          </div>
+        </div>
+    </div>
+    <% if mobile.review %>
+    <div class="choose">
+      <ul class="nav nav-pills nav-justified">
+        <li><a href="#"><i class="fa fa-file-text-o"></i>Review</a></li>
+      </ul>
+    </div>
+    <% end %>
   </div>
-  <div class="phone-info">
-    <div class="col-md-4">
-      <%= image_tag @mobile.image.url ,class:"img"%>
-    </div>
-    <div class="col-md-4" style="height: 108px">
-      <i class="fa fa-calendar" aria-hidden="true"></i> Released <%= @mobile.launch_announced %> <br>
-      <i class="fa fa-mobile-phone" aria-hidden="true"></i> <%= @mobile.thickness%> <br>
-      <i class="fa fa-check" aria-hidden="true"></i> <%= @mobile.os %> <br>
-      <i class="fa fa-tags" aria-hidden="true"></i> <%= @mobile.storage %> <br>
-    </div>
-    <div class="col-md-2" style="height: 108px">
-      <strong>RATE </strong><br>
-      <h2><%= @mobile.average("original_score").avg if @mobile.average("original_score")%></h2>
-    </div>
-    <div class="col-md-2" style="height: 108px">
-      <strong>PRICE</strong>
-      <h2><%= @mobile.price %></h2>
-    </div>
-    <div class="col-md-2" style="height: 108px">
-      <i class="fa fa-arrows-alt fa-2x" aria-hidden="true"></i><br>
-      <%= @mobile.display %>
-    </div>
-    <div class="col-md-2" style="height: 108px">
-      <i class="fa fa-camera fa-2x" aria-hidden="true"></i><br>
-      <%= @mobile.camera %>
-    </div>
-    <div class="col-md-2" style="height: 108px">
-      <i class="fa fa-cog fa-2x" aria-hidden="true"></i><br>
-      <%= @mobile.ram %>
-    </div>
-    <div class="col-md-2" style="height: 108px">
-      <i class="fa fa-battery-full fa-2x" aria-hidden="true"></i><br>
-      <%= @mobile.battery_spec %>
-    </div>
-    <div class="col-md-12">
-      <%= link_to "Review", review_path(@mobile.review) if @mobile.review %>
-    </div>
-  </div>
+</div>
+
 

@@ -1,23 +1,72 @@
-<div class="col-md-3">
-  <p class="lead">メーカー</p>
-  <div class="list-group">
-    <% MobileBrand.first(5).each do |brand| %>
-      <%= link_to brand.name, brand, class: "list-group-item" %>
+<div class="left-sidebar">
+  <div class="brands_products"><!--brands_products-->
+    <h2>Brands</h2>
+    <div class="brands-name">
+      <ul class="nav nav-pills nav-stacked">
+        <% MobileBrand.first(5).each do |brand| %>
+          <li><a href="<%= mobile_brand_path brand %>">
+          <span class="pull-right">(<%= Mobile.where(mobile_brand: brand).count%>)</span>
+          <%= brand.name %></a></li>
+        <% end %>
+        <hr>
+        <li><a href="<%= mobile_brands_path %>">
+          <span class="pull-right">(<%= MobileBrand.count%>)</span>
+          All Brands </a></li>
+      </ul>
+    </div>
+  </div><!--/brands_products-->
+
+  <h2  style="padding-top: 30px">TOP REVIEWS</h2>
+  <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+     <% Review.with_ratings.first(5).each do |review| %>
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+              <span class="badge pull-right"></span>
+              <%= link_to review.mobile.name, review %>
+            </a>
+          </h4>
+        </div>
+      </div>
     <% end %>
-    <%= link_to "All brands", mobile_brands_path, class: "list-group-item" %>
-  </div>
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+            <span class="badge pull-right"></span>
+            <%= link_to "All review", reviews_path %>
+          </a>
+        </h4>
+      </div>
+    </div>
+  </div><!--/category-products-->
 
-  <p class="lead">トップレビュー</p>
-  <div class="list-group">
-  <% Review.with_ratings.first(5).each do |review| %>
-    <%= link_to review.mobile.name, review, class: "list-group-item" %>
-  <% end %>
-  </div>
-
-  <p class="lead">人気な製品</p>
-  <div class="list-group">
-  <% Mobile.with_ratings.first(5).each do |mobile| %>
-    <%= link_to mobile.name, mobile, class: "list-group-item" %>
-  <% end %>
-  </div>
+   <h2  style="padding-top: 30px">TOP PRODUCTS</h2>
+  <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+     <% Mobile.with_ratings.first(5).each do |mobile| %>
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+              <span class="badge pull-right"></span>
+              <%= link_to mobile.name, mobile %>
+            </a>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+            <span class="badge pull-right"></span>
+            <%= link_to "All products", mobiles_path %>
+          </a>
+        </h4>
+      </div>
+    </div>
+  </div><!--/category-products-->
 </div>

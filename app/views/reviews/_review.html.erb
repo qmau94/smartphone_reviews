@@ -1,0 +1,18 @@
+<div class="single-blog-post">
+  <h3><%= review.title %></h3>
+  <div class="post-meta">
+    <ul>
+      <li><i class="fa fa-user"></i><%= review.user.name %></li>
+      <li><i class="fa fa-clock-o"></i> <%= review.created_at.strftime("%H:%m")%></li>
+      <li><i class="fa fa-calendar"></i> <%= review.created_at.strftime("%b %d, %Y")%></li>
+    </ul>
+    <span>
+      <%= rating_for review, "original_score", disable_after_rate: true %>
+    </span>
+  </div>
+  <a href="">
+    <%= image_tag review.image.url(:thumb), class: "image" %>
+  </a>
+  <p><%= review.content.first(300).html_safe %>...</p>
+  <a  class="btn btn-primary" href="<%= review_path review%>">Read More</a>
+</div>

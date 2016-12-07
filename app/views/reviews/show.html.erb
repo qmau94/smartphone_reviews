@@ -1,23 +1,42 @@
 <% provide :title, "#{@review.title} review" %>
-<div class="col-md-12 review-image" style="background-image: url(<%= @review.image.url %>)">
-  <div class="col-md-3">
-    <h2><span class="label label-danger"><%= @review.user.name %></span></h2>
-    <h5><span class="label label-default"><%= @review.created_at %></span></h5>
+<div class="blog-post-area">
+  <h2 class="title text-center">REVIEW</h2>
+  <div class="single-blog-post">
+    <h3><%=@review.title%>
+    </h3>
+    <div class="post-meta">
+      <ul>
+        <li><i class="fa fa-user"></i><%=@review.user.name%></li>
+        <li><i class="fa fa-clock-o"></i><%=@review.created_at.strftime("%H:%m")%></li>
+        <li><i class="fa fa-calendar"></i> <%= @review.created_at.strftime("%b %d, %Y")%></li>
+      </ul>
+      <span>
+        <%= rating_for @review, "original_score", disable_after_rate: true %>
+      </span>
+    </div>
+    <span class="btn btn-primary">View <%=@review.mobile.name%></span>
+    <a href="">
+      <%= image_tag @review.image.url(:medium), class: "image" %>
+    </a>
+    <p>
+      <%= @review.content.html_safe %>
+    </p>
   </div>
-  <div class="col-md-3 col-md-offset-9" style="padding-top: 130px">
-    <%= link_to @review.mobile.name.upcase, mobile_path(@review.mobile), class: "btn btn-default" %>
-  </div>
-</div>
-Rate this review: <%= rating_for @review, "original_score", disable_after_rate: false %>
-RATE:
-<%= @review.average("original_score").avg if @review.average("original_score") %>
-<div class="review" style="padding-top: 20px">
-  <%= @review.content.html_safe %>
-</div>
-<h1>Comment(<%= @review.comments.count %>)</h1>
-<div class="comments-container">
-  <ul id="comments-list" class="comments-list" style="padding:0">
+</div><!--/blog-post-area-->
+
+<div class="rating-area">
+  <ul class="ratings">
+    <li class="rate-this">Rate this review:</li>
+    <li>
+      <%= rating_for @review, "original_score", disable_after_rate: false %>
+    </li>
+  </ul>
+</div><!--/rating-area-->
+
+<div class="response-area">
+  <h2><%= @review.comments.count %> RESPONSES</h2>
+  <ul class="media-list">
     <%= render @review.comments %>
   </ul>
-  <%= render "comments/form" %>
-</div>
+</div><!--/Response-area-->
+<%= render "comments/form"%>

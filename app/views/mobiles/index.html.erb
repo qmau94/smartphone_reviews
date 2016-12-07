@@ -1,17 +1,5 @@
 <% provide :title, "Mobiles" %>
-<div class="col-md-9">
-  <% if @mobiles.any? %>
-    <% @mobiles.each do |mobile| %>
-      <%= link_to mobile_path(mobile) do %>
-      <div class="col-md-3 mobile_div">
-        <%= image_tag mobile.image.url(:medium), class: "image" %>
-        <div class="name text-center"><%= mobile.name.upcase %></div>
-      </div>
-      <% end %>
-    <% end %>
-  <% else %>
-    There is no phone contains "<%= params[:search] %>" terms<br>
-    Go to <%= link_to "Advanced Search", new_search_path %>
-  <% end %>
-</div>
-
+<div class="features_items"><!--features_items-->
+  <h2 class="title text-center">All Phones</h2>
+  <%= render Mobile.all%>
+</div><!--features_items-->

@@ -1,0 +1,14 @@
+<% @mobiles.each do |mobile| %>
+  <div class="col-sm-3">
+    <div class="product-image-wrapper">
+      <div class="single-products">
+        <div class="productinfo text-center">
+          <%= image_tag mobile.image.url(:medium) ,class:"img"%>
+          <h2><%= mobile.name %></h2>
+          <p><i class="fa fa-star-o "></i> <%= mobile.average("original_score").avg if mobile.average("original_score")%></p>
+          <a href="<%= mobile_path mobile%>" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

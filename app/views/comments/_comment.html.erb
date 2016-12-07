@@ -1,19 +1,18 @@
 <li class="media">
-  <div class="media-left">
-    <a href="#">
-      <% if comment.user.avatar %>
-        <img class="media-object" src="<%= comment.user.avatar.url(:thumb)  %>">
-      <% end  %>
-    </a>
-  </div>
+  <a class="pull-left" href="#">
+   <%= image_tag comment.user.avatar.url(:thumb) %>
+  </a>
   <div class="media-body">
-    <h4 class="media-heading"><%= comment.user.name %></h4>
-    <span style="color: #b1b1b1;font-size: 12px;">posted <%= time_ago_in_words(comment.created_at) %> </span>
+    <ul class="sinlge-post-meta">
+      <li><i class="fa fa-user"></i><%= comment.user.name%></li>
+      <li><i class="fa fa-clock-o"></i> <%=comment.created_at.strftime("%H:%m")%></li>
+      <li><i class="fa fa-calendar"></i> <%=comment.created_at.strftime("%b %d, %Y")%></li>
+    </ul>
+    <p><%= comment.content %></p>
     <% if comment.user == current_user %>
-      <%= link_to [@review, comment], method: :delete, data: {confirm: "Are you sure?"} do %>
-        Delete
+      <%= link_to [comment.review, comment], method: :delete, data: {confirm: "Are you sure?"} do %>
+        <span class="btn btn-primary"><i class="fa fa-minus-square"></i> Delete</span>
       <% end %>
     <% end %>
-    <p class="comment_content"><%= comment.content %></p>
   </div>
 </li>
