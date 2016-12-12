@@ -1,83 +1,37 @@
-<div id="sidebar-wrapper">
-  <ul class="sidebar-nav">
-    <li class="sidebar-brand">
-      <%= link_to admin_dashboard_path do %>
-        スマートフォンビュー
-      <% end %>
-    </li>
-    <li class="panel-group">
-      <%= link_to admin_dashboard_path do %>
-        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-        Dashboard
-      <% end %>
-    </li>
-    <li class="panel-group">
-      <a data-toggle="collapse" href="#user">
-      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  Users</a>
-      <ul id="user" class="panel-collapse collapse">
-        <li>
-          <%= link_to "New user", new_admin_user_path %>
-        </li>
-        <li>
-          <%= link_to "Users", admin_users_path %>
-        </li>
-      </ul>
-    </li>
-    <li class="panel-group">
-      <a data-toggle="collapse" href="#subject">
-        <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-        Phones
-      </a>
-      <ul id="subject" class="panel-collapse collapse">
-        <li>
-          <%= link_to "New phone", new_admin_mobile_path %>
-        </li>
-        <li>
-          <%= link_to "Phones index", admin_mobiles_path %>
-        </li>
-      </ul>
-    </li>
-    <li class="panel-group">
-      <a data-toggle="collapse" href="#course">
-        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-        Brands</a>
-      <ul id="course" class="panel-collapse collapse">
-        <li>
-          <%= link_to "New brand", new_admin_mobile_brand_path %>
-        </li>
-        <li>
-          <%= link_to "Brands index", admin_mobile_brands_path %>
-        </li>
-      </ul>
-    </li>
-    <li class="panel-group">
-      <a data-toggle="collapse" href="#reviews">
-        <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-        Reviews
-      </a>
-      <ul id="reviews" class="panel-collapse collapse">
-        <li>
-          <%= link_to "New review", new_admin_review_path %>
-        </li>
-        <li>
-          <%= link_to "Reviews index", admin_reviews_path %>
-        </li>
-      </ul>
-    </li>
-    <li class="panel-group">
-      <a data-toggle="collapse" href="#account">
-        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-        Account
-      </a>
-      <ul id="account" class="panel-collapse collapse">
-        <li><%= link_to t("navbar.profile"), "#" %></li>
-        <li>
-          <%= link_to t("navbar.setting"), "#" %>
-        </li>
-        <li>
-          <%= link_to t("navbar.logout"), destroy_user_session_path, method: :delete %>
-        </li>
-      </ul>
-    </li>
-  </ul>
+<div class="sidebar" data-color="black" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="<%=  %>" class="simple-text">
+                Smartphone-Review
+            </a>
+        </div>
+
+        <ul class="nav">
+            <li class="active">
+                <a href="dashboard.html">
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%= admin_users_path %>">
+                    <p>Users Profile</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%= admin_mobiles_path %>">
+                    <p>Mobiles List</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%= admin_mobile_brands_path %>">
+                    <p>Brands</p>
+                </a>
+            </li>
+            <li>
+                <a href="<%= admin_reviews_path %>">
+                    <p>Reviews</p>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>

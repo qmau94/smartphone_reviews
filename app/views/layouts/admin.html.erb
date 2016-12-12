@@ -9,27 +9,12 @@
     <%= render "layouts/shim" %>
   </head>
   <body>
-    <div id="wrapper">
-      <%= render "layouts/admin_sidebar"%>
-      <div id="page-content-wrapper">
-        <%= render "layouts/flash" %>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-12">
-                <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
-                <div class="admin-info">
-                  <%= yield %>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="wrapper">
+      <%= render "layouts/admin_sidebar" %>
+      <div class="main-panel">
+        <%= render "layouts/admin_navbar" %>
+        <%= yield %>
       </div>
     </div>
   </body>
-  <script type="text/javascript">
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
 </html>
