@@ -1,7 +1,7 @@
 <% provide :title, "All users" %>
 <h1>All Users</h1>
 <%= link_to new_admin_user_path do %>
-  <div class="btn btn-success">Add user</div>
+  <div class="btn btn-primary">Add user</div>
 <% end %>
 <table class="table table-bordered text-center">
   <thead>
@@ -32,7 +32,7 @@
       </td>
       <td>
       <%= link_to edit_admin_user_path(user) do %>
-        <div class="btn btn-primary"> Edit </div>
+        <div class="btn btn-success"> Edit </div>
       <% end %>
       <%= link_to admin_user_path(user), method: :delete, data: {confirm: "Are you sure?"} do %>
         <div class="btn btn-danger"> Delete </div>

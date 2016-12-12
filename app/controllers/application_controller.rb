@@ -1,10 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :create_history
 
   layout :layout_by_user
 
   protected
+  def create_history
+    session[:history] ||= []
+  end
+
   def after_sign_in_path_for user
     current_user.admin? ? admin_dashboard_url : root_url
   end

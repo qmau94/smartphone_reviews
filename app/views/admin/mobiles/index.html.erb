@@ -1,7 +1,7 @@
 <% provide :title, "Phones index" %>
 <h1>All Phones</h1>
 <%= link_to new_admin_mobile_path do %>
-  <div class="btn btn-success">Add mobile</div>
+  <div class="btn btn-primary">Add mobile</div>
 <% end %>
 <table class="table table-bordered text-center">
   <thead>
@@ -28,7 +28,7 @@
       </td>
       <td>
         <%= link_to edit_admin_mobile_path(mobile) do %>
-          <div class="btn btn-primary"> Edit </div>
+          <div class="btn btn-success"> Edit </div>
         <% end %>
         <%= link_to admin_mobile_path(mobile), method: :delete, data: {confirm: "Are you sure?"} do %>
           <div class="btn btn-danger"> Delete </div>
